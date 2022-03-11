@@ -14,10 +14,33 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
+            <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home</a>
+                    <a class="nav-link" href="#">Strona główna</a>
                 </li>
+            </ul>
+            <ul class="navbar-nav">
+                @if (Request.IsAuthenticated)
+                {
+                    <li class="nav-item d-none d-lg-block">
+                        <span class="navbar-text">Witaj @User.Identity.Name</span>
+                    </li>
+                    <li class="nav-item d-none d-lg-block">
+                        <span class="navbar-text">&nbsp;|&nbsp;</span>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="@Url.Action("Logout", "Account")">Wyloguj się</a>
+                    </li>
+                }
+                else
+                {
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Login", "Account")">Zaloguj się</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Register", "Account")">Zarejerstruj się</a>
+                    </li>
+                }
             </ul>
         </div>
     </div>
