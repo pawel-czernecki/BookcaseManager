@@ -11,7 +11,7 @@
         <div class="col">
             <div class="card m-2">
                 <div class="card-body text-center">
-                    <p>Nasi użytkownicy dodali już <b>@ViewBag.BookCount</b> książek!</p>
+                    <p>Nasi użytkownicy dodali już <b>@(ViewBag.BookCount ?? 0)</b> książek!</p>
                     <small class="text-muted">Dołącz do nich już dzisiaj!</small>
                 </div>
             </div>
