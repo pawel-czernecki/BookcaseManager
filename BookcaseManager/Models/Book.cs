@@ -11,15 +11,22 @@ namespace BookcaseManager.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Book
     {
+        [Display(Name = "Tytu³")]
         public string title { get; set; }
+        [Display(Name = "Autor")]
         public string author { get; set; }
+        [Display(Name = "Ocena")]
+        [Range(1,10)]
         public Nullable<short> rating { get; set; }
         public string ISBN { get; set; }
+        [Display(Name = "Gatunek")]
         public string genre { get; set; }
         public string readBy { get; set; }
+        [Display(Name = "Notatka")]
         public string note { get; set; }
         public int id { get; set; }
     }
