@@ -1,0 +1,37 @@
+﻿@model BookcaseManager.Models.Book
+
+@{
+    ViewBag.Title = "Usuń książkę";
+}
+
+<h3>Napewno chcesz usunąć tą książkę?</h3>
+<hr />
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.author)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.author)
+        </dd>
+
+        @Html.HiddenFor(model => model.id)
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Usuń" class="btn btn-danger btn-block" />
+        </div>
+    }
+</div>
