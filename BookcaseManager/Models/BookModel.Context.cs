@@ -20,6 +20,11 @@ namespace BookcaseManager.Models
         {
         }
     
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            throw new UnintentionalCodeFirstException();
+        }
+    
         public DbSet<Book> Books { get; set; }
     }
 }
