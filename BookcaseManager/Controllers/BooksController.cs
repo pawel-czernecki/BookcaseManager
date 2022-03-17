@@ -125,7 +125,7 @@ namespace BookcaseManager.Controllers
             using (var context = new Entities())
             {
                 var bookList = context.Books
-                    .OrderBy(b => b.addedDate)
+                    .OrderByDescending(b => b.addedDate)
                     .Take(50)
                     .ToList();
                 return View(bookList);
