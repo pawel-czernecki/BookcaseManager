@@ -20,7 +20,7 @@ namespace BookcaseManager.Models
         [Display(Name = "Autor")]
         public string author { get; set; }
         [Display(Name = "Ocena")]
-        [Range(1,10)]
+        [Range(1, 10)]
         public Nullable<short> rating { get; set; }
         public string ISBN { get; set; }
         [Display(Name = "Gatunek")]
@@ -29,5 +29,7 @@ namespace BookcaseManager.Models
         [Display(Name = "Notatka")]
         public string note { get; set; }
         public int id { get; set; }
+        [Display(Name = "Data dodania")]
+        public System.DateTime addedDate { get; set; }
     }
 }

@@ -17,6 +17,7 @@
           <Property Name="readBy" Type="varchar" MaxLength="100" />
           <Property Name="note" Type="text" />
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="addedDate" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityContainer Name="BookcaseManagerModelStoreContainer">
           <EntitySet Name="Books" EntityType="Self.Books" Schema="dbo" store:Type="Tables" />
@@ -37,6 +38,7 @@
           <Property Name="readBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="note" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="addedDate" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
         <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Books" EntityType="Self.Book" />
@@ -50,6 +52,7 @@
           <EntitySetMapping Name="Books">
             <EntityTypeMapping TypeName="BookcaseManagerModel.Book">
               <MappingFragment StoreEntitySet="Books">
+                <ScalarProperty Name="addedDate" ColumnName="addedDate" />
                 <ScalarProperty Name="title" ColumnName="title" />
                 <ScalarProperty Name="author" ColumnName="author" />
                 <ScalarProperty Name="rating" ColumnName="rating" />

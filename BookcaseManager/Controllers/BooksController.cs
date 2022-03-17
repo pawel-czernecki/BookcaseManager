@@ -28,6 +28,7 @@ namespace BookcaseManager.Controllers
                 using (var context = new Entities())
                 {
                     book.readBy = User.Identity.Name;
+                    book.addedDate = DateTime.Now;
                     context.Books.Add(book);
                     context.SaveChanges();
                 }
