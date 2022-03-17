@@ -1,0 +1,38 @@
+﻿@model IEnumerable<BookcaseManager.Models.Book>
+
+@{
+    ViewBag.Title = "Ostatnia aktywność";
+}
+
+<h2>Nasi użytkownicy czytali ostatnio:</h2>
+<p class="text-muted mb-4">Ostatnie 50 książek dodane przez wszystkich naszych użytkowników</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.author)
+        </th>
+        <th>
+            Przeczytane przez:
+        </th>
+
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.author)
+        </td>
+        <td>
+            <strong>@Html.DisplayFor(modelItem => item.readBy)</strong>
+        </td>
+    </tr>
+}
+
+</table>

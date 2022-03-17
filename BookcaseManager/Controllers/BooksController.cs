@@ -117,5 +117,19 @@ namespace BookcaseManager.Controllers
                 return View();
             }
         }
+
+        //GET: Books/LastAdded
+        //PROVIDE: Last 50 added books by all users
+        public ActionResult LastAdded()
+        {
+            using (var context = new Entities())
+            {
+                var bookList = context.Books
+                    .OrderBy(b => b.addedDate)
+                    .Take(50)
+                    .ToList();
+                return View(bookList);
+            }
+        }
     }
 }
