@@ -1,0 +1,29 @@
+﻿@model List<KeyValuePair<MembershipUser, int>>
+
+@{
+    ViewBag.Title = "Lista użytkowników";
+}
+
+<h2>Lista naszych użytkowników:</h2>
+<p class="text-muted mb-4">Aktualnie zalogowani: <strong>@ViewBag.OnlineCount / @ViewBag.UsersCount</strong></p>
+
+<div class="container">
+    <div class="row">
+        @foreach (var profile in Model) {
+            <div class="col-12 col-lg-4">
+                <div class="card">
+                    <div class="card-body">
+                        <p>Nazwa użytkownika: <span class="font-weight-bold">@profile.Key.UserName</span></p>
+                        <p>Liczba przeczytanych książek: <span class="font-weight-bold">@profile.Value</span></p>
+                        <p>Status: 
+                            <span class="font-weight-bold text-@(profile.Key.IsOnline?"success":"danger")">
+                                @(profile.Key.IsOnline?"online":"offline")
+                            </span>
+                        </p>
+                        <p>Ostatnio aktywny: @profile.Key.LastActivityDate</p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
